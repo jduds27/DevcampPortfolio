@@ -3,10 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background-color: grey;
+  background-image: URL("https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/2012-01-10_22-53-20-nightscape.jpg/1920px-2012-01-10_22-53-20-nightscape.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-attachment: center;
   font-family: sans-serif;
   color: white;
   padding-left: 5%;
-  
-  
 }
