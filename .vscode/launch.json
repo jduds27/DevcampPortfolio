@@ -63,3 +63,16 @@
     }
   ]
 }
+
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Ruby Debug",
+          "type": "Ruby",
+          "request": "launch",
+          "program": "${workspaceFolder}/hello_world.rb",
+          "stopOnEntry": false
+      }
+  ]
+}
