@@ -86,7 +86,7 @@ body {
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
   color: rgba(255,255,255,.25);
-  transition-duration: 1s;
+  transition-duration: 1.2s;
 }
 
 .nav-masthead .nav-link + .nav-link {
@@ -178,4 +178,8 @@ body {
 
  .auth-links a {
    color: black;
+ }
+
+ .register-text {
+   text-align: right;
  }
