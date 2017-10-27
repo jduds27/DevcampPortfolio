@@ -17,6 +17,6 @@ module ApplicationHelper
   end
 
   def copyright_generator
-    JdudsViewTool::Renderer.copyright 'Jason Dudley', 'All rights reserved'
+    JdudsViewTool::Renderer.copyright 'Jason Dudley ','All rights reserved'
   end
 end
