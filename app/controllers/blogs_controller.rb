@@ -1,14 +1,14 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   layout "blog"
-  access all: [:show, :index], 
-         user: {except: [:destroy, :new, :create, :update, :edit]}, 
+  access all: [:show, :index],
+         user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]},
          site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.page(params[:page]).per(5)
     @page_title = "My blogs"
   end
 
@@ -16,7 +16,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @page_title = @blog.title
-    @seo_keywords = @blog.title 
+    @seo_keywords = @blog.title
   end
 
   # GET /blogs/new
@@ -72,8 +72,10 @@ class BlogsController < ApplicationController
     end
 
     redirect_to blogs_url, notice: 'Post status has been updated.'
-  end 
+  end
+
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.friendly.find(params[:id])
