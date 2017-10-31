@@ -1,13 +1,20 @@
 class PortfoliosController < ApplicationController
-before_action :set_portfolio_item, only: [:edit, :show, :update, :destroy]
-layout 'portfolio'
-access all: [:show, :index], 
-user: {except: [:destroy, :new, :create, :update, :edit]}, 
-site_admin: :all
+  before_action :set_portfolio_item, only: [:edit, :show, :update, :destroy]
+  layout 'portfolio'
+  access all: [:show, :index],
+         user: {except: [:destroy, :new, :create, :update, :edit, :sort]},
+         site_admin: :all
 
   def index
-    @portfolio_items = Portfolio.all
-    @page_title = "My Portfolio"
+    @portfolio_items = Portfolio.by_position
+  end
+
+  def sort
+    params[:order].each do |key, value|
+      Portfolio.find(value[:id]).update(position: value[:position])
+    end
+
+    render nothing: true
   end
 
   def angular
@@ -35,10 +42,10 @@ site_admin: :all
     @portfolio_item = Portfolio.find(params[:id])
   end
 
-    def update
-     @portfolio_item = Portfolio.find(params[:id])
+  def update
+    @portfolio_item = Portfolio.find(params[:id])
 
-     respond_to do |format|
+    respond_to do |format|
       if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
       else
@@ -47,12 +54,11 @@ site_admin: :all
     end
   end
 
+  def show
+    @portfolio_item = Portfolio.find(params[:id])
+  end
 
-    def show
-      @portfolio_item = Portfolio.find(params[:id])
-    end
-
-    def destroy
+  def destroy
     # Perform the lookup
     @portfolio_item = Portfolio.find(params[:id])
 
@@ -62,19 +68,16 @@ site_admin: :all
     # Redirect
     respond_to do |format|
       format.html { redirect_to portfolios_url, notice: 'Record was Removed.' }
-
     end
   end
 
   private
 
   def portfolio_params
-    params.require(:portfolio).permit(:title, 
+    params.require(:portfolio).permit(:title,
                                       :subtitle,
-                                      :body, 
-                                      technologies_attributes: [:name]
-                                      )
-
+                                      :body,
+                                      technologies_attributes: [:name])
   end
 
   def set_portfolio_item
