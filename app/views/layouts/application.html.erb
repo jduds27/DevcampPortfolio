@@ -7,7 +7,11 @@
     <title> <%= @page_title %> </title>
     <%= csrf_meta_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
+
     <meta name="keywords" content="<%= @seo_keywords %>" />
+
+    <%= favicon_link_tag 'favicons/favicon.ico'%>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -19,12 +23,12 @@
         <div class="cover-container">
 
           <%= video_tag(
-            'Everything-is-right.mp4',
+            'Blue-Horizon.mp4',
             id: 'background',
             autoplay: true,
             loop: true,
             muted: true,
-            poster: 'Everything-is-right.jpg',
+            poster: 'Blue-Horizon.jpg',
           )
           %>
 
