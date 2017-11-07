@@ -8,15 +8,17 @@
         
         <div class="skills">
           <% @skills.each do |skill| %>
-            <h4><%= skill.title %></h4>
-            <div class="progress">
-              <div 
-                class"progress-bar progress-bar-striped bg-success"
-                role="progressbar"
-                aria-valuenow="<%= skill.percent_utilized %>"
-                aria-valuemax="100"
-                style="width: <%= skill.percent_utilized %>%"
-              >
+            <div class="skill">
+              <h4><%= skill.title %></h4>
+              <div class="progress">
+                <div 
+                  class="progress-bar progress-bar-striped bg-success"
+                  role="progressbar"
+                  aria-valuenow="<%= skill.percent_utilized %>"
+                  aria-valuemax="100"
+                  style="width: <%= skill.percent_utilized %>%"
+                >
+                </div>
               </div>
             </div>
           <% end %>
