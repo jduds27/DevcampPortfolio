@@ -1,9 +1,26 @@
 
-      <main role="main" class="inner cover">
+<div class="home-mid">
+    <div class="me-title">Hello, I'm Jason.</div>
+    <div class="me-text">I'm a programmer, a web designer, and a photographer.</div> 
 
-     
-      </main>
-
-     
-
-   
+    <div class="mid-buttons">
+        <div>
+        <%= link_to "
+        <span class='text'>About Me</span>
+        <span class='line -right'></span>
+        <span class='line -top'></span>
+        <span class='line -left'></span>
+        <span class='line -bottom'></span>
+        ".html_safe, about_me_path %> 
+        </div>
+        <div>
+        <%= link_to "
+        <span class='text'>Portfolio</span>
+        <span class='line -right'></span>
+        <span class='line -top'></span>
+        <span class='line -left'></span>
+        <span class='line -bottom'></span>
+        ".html_safe, portfolios_path %> 
+        </div>
+    </div>
+</div>
