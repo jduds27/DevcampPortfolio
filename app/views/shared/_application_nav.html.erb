@@ -1,9 +1,25 @@
-<div class="masthead clearfix">
-  <div class="inner">
-    <h3 class="masthead-brand">Jason Dudley</h3>
-    <nav class="nav nav-masthead app-nav">
-      <%= nav_helper 'nav-link', 'span' %>
-      <%= login_helper "nav-link" %>
-    </nav>
+<div class="masthead clearfix"> 
+  <div class="logo col-md-3">
+  <h3><%= link_to "Jason Dudley", root_path, class: 'masthead-brand, home-btn' %></h3>
   </div>
-</div>
+    <div class="nav-wrapper col-md-9" id="myTopnav">
+    
+     <span><%= link_to "Blog", blogs_path, class: 'home-btn' %></span>
+     <span><%= link_to "Contact", contact_path, class: 'home-btn' %></span>
+     <span><%= link_to "Portfolio", portfolios_path, class: 'home-btn' %></span>
+     <span><%= link_to "About-Me", about_me_path, class: 'home-btn' %></span>
+     <span><%= link_to "News", tech_news_path, class: 'home-btn' %></span>
+     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+  </div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "nav-wrapper") {
+        x.className += " responsive";
+    } else {
+        x.className = "nav-wrapper";
+    }
+}
+</script>

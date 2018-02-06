@@ -16,13 +16,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-
-          <%= video_tag(
+    <div id="my-site">
+      <div class="top-nav-wrapper">
+        <%= render "shared/application_nav" %>
+      </div>
+      
+      <div class="middle-wrapper">
+          <%# <%= video_tag(
             'Blue-Horizon.mp4',
             id: 'background',
             autoplay: true,
@@ -30,18 +31,15 @@
             muted: true,
             poster: 'Blue-Horizon.jpg',
           )
-          %>
+          %> 
 
-          <%= render "shared/application_nav" %>
-
-          <%= yield %>
-
-          <%= alerts %>
-
-          <%= render "shared/application_footer" %>
-
-        </div>
-      </div>
+        <%= yield %>
+      </div> 
+        <%= alerts %>
+      
+      
+        <%= render "shared/application_footer" %>
+     
     </div>
   </body>
 </html>

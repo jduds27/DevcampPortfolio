@@ -1,37 +1,26 @@
 
-      <main role="main" class="inner cover">
+<div class="home-mid">
+    <div class="me-title">Hi, I'm Jason.</div>
+    <div class="me-text">I'm a programmer, a web designer, and a photographer.</div> 
 
-      <div class="typewriter">
-        <h1 >Jason Dudley</h1>
-        <hr>
-        <p class="lead">
-“if you’re going to try,
-go all the way.
-there is no other feeling like
-that.
-you will be alone with the gods
-and the nights will flame with
-fire.
-
-<br>do it, do it, do it.
-do it.<br>
-
-all the way
-all the way.<br>
-
-you will ride life straight to
-perfect laughter, its
-the only good fight
-there is."
-
-– Charles Bukowski</p>
- 
- <hr>
-        <p class="lead">
-        <%= link_to "About Me", about_me_path, class: "btn btn-lg btn-secondary" %>
-        </p>
-      </main>
-
-     
-
-   
+    <div class="mid-buttons">
+        <div>
+        <%= link_to "
+        <span class='text'>About Me</span>
+        <span class='line -right'></span>
+        <span class='line -top'></span>
+        <span class='line -left'></span>
+        <span class='line -bottom'></span>
+        ".html_safe, about_me_path %> 
+        </div>
+        <div>
+        <%= link_to "
+        <span class='text'>Portfolio</span>
+        <span class='line -right'></span>
+        <span class='line -top'></span>
+        <span class='line -left'></span>
+        <span class='line -bottom'></span>
+        ".html_safe, portfolios_path %> 
+        </div>
+    </div>
+</div>
